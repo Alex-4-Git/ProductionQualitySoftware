@@ -1,0 +1,33 @@
+Please enter your code review in this file as plain text
+and make sure to include it when you commit your project.
+
+1. in AddressBook.java
+	1.1 line 42 only check null not check ""
+	1.2 line 43, if using LoggerWrapper, then don't know which class cause error.
+	1.3 line 39, use a static method to initial a new instance but didn't invalid the default constructor.
+	1.4 line 42, didn't check this username in use or not.
+	1.5 line 98, don't think need to check address. Sometime address is empty but name not is a valid entry.
+	1.6 line 105, entries could be null if not using newInstance function to create instance.
+	1.7 line 128, entries could be null if not using newInstance function to create instance.
+	1.8 line 145, it's not a good habit to name something same as class name in java.util
+	1.9 line 148, also only check null but not check empty "" or trim empty like this "   ".
+	1.10 in search function, all Searchstr didn't trim. So " hello " is different from "hello".
+	1.11 in addEntry function, didn't valid other inputs.
+	1.12 line 195, log result is only the memory address which is meanless.
+	1.13 in save function, didn't do anything about FileOutputStream such as flush() close().
+	1.14 line 147, should use loop to get Object and Catch EOFException and use that to terminate the loop.
+	1.15 in read function, didn't flush() and close() the FileInputStream.
+	1.16 line 281, once savedObject = null or addressBook = null like file is empty then ObjectInputStream is not close. 
+	1.17 line 303, if use ~##~ as splitter, then should check the input to avoid input ~##~ as content.
+	1.18 line 316, didn't check property length.
+	1.19 in hashCode function, this calculate easy to conflict.
+
+2. in AddressBookExceptions.java
+	2.1 its not good to name all custom Exceptions in one file.
+	2.2 @SuppressWarnings cause Serializable class don't have serialVersionUID
+
+3. in Entry.java
+	3.1 didn't check inputs
+
+4. in LoggerWrapper.java
+	4.1 line 31, fixed log level to info
